@@ -18,6 +18,6 @@ export class AppController {
 
   @Get('/test')
   getTest(): string {
-    return 'OK';
+    return 'OK Edgar';
   }
 }

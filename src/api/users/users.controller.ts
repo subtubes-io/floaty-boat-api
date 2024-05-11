@@ -32,28 +32,19 @@ export class UsersController {
     private readonly apiKeyService: ApiKeyService,
   ) {}
 
-  @Get('/test')
-  getTestEdgarOrion(): string {
-    //@Headers() headers?
-    // this.logger.log(
-    //   `Health check from host: ${headers?.host ?? 'null'}. Referrer: ${
-    //     headers?.referer ?? 'null'
-    //   }`,
-    // );
-    return 'OK';
-  }
   @Get()
-  async findOne() {
-    return 'OK we are in here';
+  async findOne(@Request() req: JwtAuthenticatedRequest) {
+    const user = await this.usersService.findOne(req.user.userId);
+    if (!user) {
+      throw new HttpException(`Error: No user found `, HttpStatus.NOT_FOUND);
+    }
+    return user;
   }
-  // @Get()
-  // async findOne(@Request() req: JwtAuthenticatedRequest) {
-  //   const user = await this.usersService.findOne(req.user.userId);
-  //   if (!user) {
-  //     throw new HttpException(`Error: No user found `, HttpStatus.NOT_FOUND);
-  //   }
-  //   return user;
-  // }
+
+  @Get('/edgar')
+  async findEdgar() {
+    return 'Edgar';
+  }
 
   @Patch()
   update(
