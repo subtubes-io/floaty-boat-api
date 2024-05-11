@@ -42,15 +42,18 @@ export class UsersController {
     // );
     return 'OK';
   }
-
   @Get()
-  async findOne(@Request() req: JwtAuthenticatedRequest) {
-    const user = await this.usersService.findOne(req.user.userId);
-    if (!user) {
-      throw new HttpException(`Error: No user found `, HttpStatus.NOT_FOUND);
-    }
-    return user;
+  async findOne() {
+    return 'OK we are in here';
   }
+  // @Get()
+  // async findOne(@Request() req: JwtAuthenticatedRequest) {
+  //   const user = await this.usersService.findOne(req.user.userId);
+  //   if (!user) {
+  //     throw new HttpException(`Error: No user found `, HttpStatus.NOT_FOUND);
+  //   }
+  //   return user;
+  // }
 
   @Patch()
   update(
