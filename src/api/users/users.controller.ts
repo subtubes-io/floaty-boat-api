@@ -32,6 +32,17 @@ export class UsersController {
     private readonly apiKeyService: ApiKeyService,
   ) {}
 
+  @Get('/test-edgar-orion')
+  getTestEdgarOrion(): string {
+    //@Headers() headers?
+    // this.logger.log(
+    //   `Health check from host: ${headers?.host ?? 'null'}. Referrer: ${
+    //     headers?.referer ?? 'null'
+    //   }`,
+    // );
+    return 'OK';
+  }
+
   @Get()
   async findOne(@Request() req: JwtAuthenticatedRequest) {
     const user = await this.usersService.findOne(req.user.userId);
