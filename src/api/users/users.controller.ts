@@ -32,7 +32,7 @@ export class UsersController {
     private readonly apiKeyService: ApiKeyService,
   ) {}
 
-  @Get('/test-edgar-orion')
+  @Get('/test')
   getTestEdgarOrion(): string {
     //@Headers() headers?
     // this.logger.log(
