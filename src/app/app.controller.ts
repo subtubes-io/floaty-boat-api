@@ -15,4 +15,14 @@ export class AppController {
     );
     return 'OK';
   }
+
+  @Get('/test-edgar-orion')
+  getTestEdgarOrion(@Headers() headers?): string {
+    this.logger.log(
+      `Health check from host: ${headers?.host ?? 'null'}. Referrer: ${
+        headers?.referer ?? 'null'
+      }`,
+    );
+    return 'OK';
+  }
 }
