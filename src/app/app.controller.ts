@@ -15,4 +15,9 @@ export class AppController {
     );
     return 'OK';
   }
+
+  @Get('/test')
+  getTest(): string {
+    return 'OK';
+  }
 }
